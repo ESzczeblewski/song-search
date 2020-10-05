@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  position: relative;
+}
+
+.songs :hover {
+  background-color: yellow;
+  cursor: pointer;
+}
+
+.errorPopup {
+  position: absolute;
+  top: 0;
+  // background-color: rgba(0, 0, 0, 0.712);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.errorMessage {
+  background-color: rgb(74, 74, 180);
+  width: 20em;
+  height: 15em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
