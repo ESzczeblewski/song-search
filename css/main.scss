@@ -7,6 +7,10 @@ form {
   position: relative;
 }
 
+.disable {
+  pointer-events: none;
+}
+
 .songs :hover {
   background-color: yellow;
   cursor: pointer;
@@ -15,13 +19,14 @@ form {
 .errorPopup {
   position: absolute;
   top: 0;
-  // background-color: rgba(0, 0, 0, 0.712);
+  background-color: rgba(0, 0, 0, 0.712);
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  display: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .errorMessage {
@@ -31,4 +36,9 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.errorOpen {
+  opacity: 1;
+  pointer-events: all;
 }

@@ -3,6 +3,7 @@ const form = document.querySelector('.search-form');
 const artistInput = document.querySelector('input[name="artist"]');
 const titleInput = document.querySelector('input[name="title"]');
 const songsContainer = document.querySelector('.songs');
+const errorPopup = document.querySelector('.errorPopup');
 const proxy = 'https://cors-anywhere.herokuapp.com/';
 const endpoint = 'http://api.musixmatch.com/ws/1.1/';
 const apikey = 'c62ff897dc4898e90376bd591ca2c32e';
@@ -17,7 +18,8 @@ function handleSubmit(e) {
   } else if (titleInput.value) {
     fetchSongsByTitle();
   } else {
-    handleNoInputError();
+    artistInput.blur();
+    handleError('No input!');
   }
 }
 
@@ -64,7 +66,7 @@ function displaySongs(songs) {
       );
     });
   } else {
-    handleNoLyricsError();
+    handleError('No lyrics found!');
   }
 }
 
@@ -77,11 +79,22 @@ async function getLyrics(id) {
   return lyrics.message.body.lyrics.lyrics_body;
 }
 
-function handleNoLyricsError() {
-  prompt('No lyrics found');
-}
-function handleNoInputError() {
-  prompt('No input');
+function handleError(message) {
+  errorPopup.classList.add('errorOpen');
+  let errorMessage = document.createElement('div');
+  errorMessage.classList.add('errorMessage');
+  errorMessage.insertAdjacentHTML(
+    'afterbegin',
+    `${message} <button class="errBtn" data-js="button">Ok</button>`
+  );
+  errorPopup.appendChild(errorMessage);
+  errorMessage.addEventListener('click', (e) => {
+    if (e.target.hasAttribute('data-js')) {
+      errorPopup.classList.remove('errorOpen');
+      errorMessage.remove();
+      errorMessage = null;
+    }
+  });
 }
 
 async function displayLyrics(id) {
