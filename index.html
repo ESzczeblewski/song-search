@@ -8,15 +8,16 @@
   </head>
   <body>
     <form class="search-form">
-      <label for="artist">Enter artist</label>
-      <input type="text" name="artist" />
-      <label for="title">Enter song title</label>
-      <input type="text" name="title" />
+      <input type="input"  name="artist" placeholder="Artist name"aria-description="Artist name"/>
+      <input type="input"  name="title" placeholder="Song name"aria-description="Song name"/>
       <button type="submit">Search</button>
     </form>
     <div class="songs">
+      <h1 class="banner">Lyrics<br>searcher</h1>
     </div>
-    <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <div class="spinner-container">
+      <div class="lds-spinner simple-circle"></div>
+    </div>
     <div class="errorPopup"></div>
     <script src="./app.js"></script>
   </body>
