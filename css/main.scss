@@ -14,16 +14,17 @@ The loaders use CSS custom properties (variables) to control the attributes of t
 .spinner-container {
   position: absolute;
   top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
   pointer-events: none;
 }
 
 .lds-spinner {
   opacity: 0;
+  margin-top: 8em;
 }
 
 .lds-spinner,
@@ -88,25 +89,32 @@ $input-text-active: #bfd2ff;
 html {
   box-sizing: border-box;
   font-size: 62.5%;
-  height: 100%;
-  width: 100%;
 }
 
 body {
+  font-family: 'Staatliches', cursive;
+  letter-spacing: 0.1em;
   margin: 0;
   font-size: 1.6rem;
 }
 
-form {
-  width: 100%;
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr minmax(18em, 50em) 1fr;
   background-color: #ffff64;
+}
+
+form {
+  grid-column: 2/3;
+  width: 100%;
   padding: 0.5em;
-  margin-bottom: 1em;
   display: grid;
   grid-template-columns: 1fr 0.5fr 1fr;
   justify-content: center;
   gap: 0.5em;
   input {
+    font-family: 'Staatliches', cursive;
+    letter-spacing: 0.1em;
     font-size: 1.6rem;
     padding: 0.5em 1em;
     border-radius: 0.2em;
@@ -116,6 +124,9 @@ form {
   }
 }
 button {
+  font-family: 'Staatliches', cursive;
+  letter-spacing: 0.1em;
+  font-size: 1.8rem;
   grid-column: 2/3;
   grid-row: 1/2;
   justify-self: center;
@@ -127,13 +138,29 @@ button {
   cursor: pointer;
 }
 
+button[disabled] {
+  background-color: #b631318e;
+  cursor: default;
+}
+
 .disable {
   pointer-events: none;
 }
 
+.nav {
+  max-width: 49em;
+  margin: auto;
+  margin-top: 1em;
+  padding: 0.5em;
+  display: flex;
+  justify-content: space-between;
+}
+
 .songs {
-  font-size: 2rem;
+  font-size: 1.8rem;
   padding: 1em;
+  max-width: 45em;
+  margin: auto;
 }
 
 .songs :hover {
@@ -144,6 +171,7 @@ button {
 .errorPopup {
   position: absolute;
   top: 0;
+  left: 0;
   background-color: rgba(0, 0, 0, 0.712);
   width: 100vw;
   height: 100vh;
