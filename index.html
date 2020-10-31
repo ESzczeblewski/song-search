@@ -10,8 +10,8 @@
   <body>
     <div class="wrapper">
       <form class="search-form">
-        <input type="input"  name="artist" placeholder="Artist name"aria-description="Artist name"/>
-        <input type="input"  name="title" placeholder="Song name"aria-description="Song name"/>
+        <input type="input"  name="artist" placeholder="Artist name"aria-description="Artist name" autocomplete="off"/>
+        <input type="input"  name="title" placeholder="Song name"aria-description="Song name" autocomplete="off"/>
         <button type="submit">Search</button>
       </form>
     </div>
@@ -22,6 +22,7 @@
     <div class="songs">
       <h1 class="banner">Lyrics<br>searcher</h1>
     </div>
+    <div class="page-numbers" id="pagination"></div>
     <div class="spinner-container">
       <div class="lds-spinner simple-circle"></div>
     </div>
